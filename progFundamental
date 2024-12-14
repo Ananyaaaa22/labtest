@@ -1,0 +1,213 @@
+labuser@labuser-virtual-machine:~$ git --version
+git version 2.34.1
+labuser@labuser-virtual-machine:~$ mkdir test11
+labuser@labuser-virtual-machine:~$ cd test11
+labuser@labuser-virtual-machine:~/test11$ git init
+Initialized empty Git repository in /home/labuser/test11/.git/
+labuser@labuser-virtual-machine:~/test11$ git init
+Reinitialized existing Git repository in /home/labuser/test11/.git/
+labuser@labuser-virtual-machine:~/test11$ echo "test11" > test11
+labuser@labuser-virtual-machine:~/test11$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	test11
+
+nothing added to commit but untracked files present (use "git add" to track)
+labuser@labuser-virtual-machine:~/test11$ git add .
+labuser@labuser-virtual-machine:~/test11$ git commit -m "changges1"
+[master (root-commit) 908a3bc] changges1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 test11
+labuser@labuser-virtual-machine:~/test11$ git remote add origin https://github.com/Ananyaaaa22/labtest.git
+labuser@labuser-virtual-machine:~/test11$ git remote -v
+origin	https://github.com/Ananyaaaa22/labtest.git (fetch)
+origin	https://github.com/Ananyaaaa22/labtest.git (push)
+labuser@labuser-virtual-machine:~/test11$ git push -u origin master
+Username for 'https://github.com': Ananyaaaa22
+Password for 'https://Ananyaaaa22@github.com': 
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 225 bytes | 225.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/Ananyaaaa22/labtest.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+labuser@labuser-virtual-machine:~/test11$ ls
+test11
+labuser@labuser-virtual-machine:~/test11$ nano test11
+labuser@labuser-virtual-machine:~/test11$ git add .
+labuser@labuser-virtual-machine:~/test11$ git commit -m "changges2"
+[master e58fa14] changges2
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+labuser@labuser-virtual-machine:~/test11$ git push -u origin master
+Username for 'https://github.com': Ananyaaaa22
+Password for 'https://Ananyaaaa22@github.com': 
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Writing objects: 100% (3/3), 255 bytes | 255.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/Ananyaaaa22/labtest.git
+   908a3bc..e58fa14  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+labuser@labuser-virtual-machine:~/test11$ git branch
+* master
+labuser@labuser-virtual-machine:~/test11$ git branch devvops
+labuser@labuser-virtual-machine:~/test11$ git checkout devvops
+Switched to branch 'devvops'
+labuser@labuser-virtual-machine:~/test11$ git branch
+* devvops
+  master
+labuser@labuser-virtual-machine:~/test11$ echo "tesst33" > filess
+labuser@labuser-virtual-machine:~/test11$ echo "tesst44" > filess2
+labuser@labuser-virtual-machine:~/test11$ ls -li
+total 12
+6160425 -rw-rw-r-- 1 labuser labuser 8 Dec 14 05:13 filess
+6160426 -rw-rw-r-- 1 labuser labuser 8 Dec 14 05:13 filess2
+6160521 -rw-rw-r-- 1 labuser labuser 7 Dec 14 05:07 test11
+labuser@labuser-virtual-machine:~/test11$ git add .
+labuser@labuser-virtual-machine:~/test11$ git commit -m "changges4"
+[devvops 6a98886] changges4
+ 2 files changed, 2 insertions(+)
+ create mode 100644 filess
+ create mode 100644 filess2
+labuser@labuser-virtual-machine:~/test11$ git push -u origin devvops
+Username for 'https://github.com': Ananyaaaa22
+Password for 'https://Ananyaaaa22@github.com': 
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 329 bytes | 329.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'devvops' on GitHub by visiting:
+remote:      https://github.com/Ananyaaaa22/labtest/pull/new/devvops
+remote: 
+To https://github.com/Ananyaaaa22/labtest.git
+ * [new branch]      devvops -> devvops
+Branch 'devvops' set up to track remote branch 'devvops' from 'origin'.
+labuser@labuser-virtual-machine:~/test11$ git branch
+* devvops
+  master
+labuser@labuser-virtual-machine:~/test11$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+labuser@labuser-virtual-machine:~/test11$ git merge devvops
+Updating e58fa14..6a98886
+Fast-forward
+ filess  | 1 +
+ filess2 | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 filess
+ create mode 100644 filess2
+labuser@labuser-virtual-machine:~/test11$ git log -p
+commit 6a98886c0de761757212cc55b8c4177b911be308 (HEAD -> master, origin/devvops, devvops)
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Sat Dec 14 05:15:06 2024 -0500
+
+    changges4
+
+diff --git a/filess b/filess
+new file mode 100644
+index 0000000..b51126d
+--- /dev/null
++++ b/filess
+@@ -0,0 +1 @@
++tesst33
+diff --git a/filess2 b/filess2
+new file mode 100644
+index 0000000..04b361e
+--- /dev/null
++++ b/filess2
+@@ -0,0 +1 @@
++tesst44
+
+commit e58fa140b5a6003887330d893c7c6a7daa372195 (origin/master)
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Sat Dec 14 05:08:37 2024 -0500
+
+    changges2
+
+diff --git a/test11 b/test11
+index cb19826..e10010b 100644
+--- a/test11
++++ b/test11
+@@ -1 +1 @@
+-test11
++test22
+
+commit 908a3bcf54c25af1d0627a19775bb6454e092ba8
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Sat Dec 14 04:56:32 2024 -0500
+
+    changges1
+
+diff --git a/test11 b/test11
+new file mode 100644
+index 0000000..cb19826
+--- /dev/null
++++ b/test11
+@@ -0,0 +1 @@
++test11
+labuser@labuser-virtual-machine:~/test11$ git log --oneline
+6a98886 (HEAD -> master, origin/devvops, devvops) changges4
+e58fa14 (origin/master) changges2
+908a3bc changges1
+labuser@labuser-virtual-machine:~/test11$ cd
+labuser@labuser-virtual-machine:~$ git clone https://github.com/Ananyaaaa22/labtest
+Cloning into 'labtest'...
+remote: Enumerating objects: 10, done.
+remote: Counting objects: 100% (10/10), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 10 (delta 1), reused 9 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (10/10), done.
+Resolving deltas: 100% (1/1), done.
+labuser@labuser-virtual-machine:~$ ls -li
+total 56
+6029410 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Desktop
+6029414 drwxr-xr-x 3 labuser labuser 4096 Dec 15  2023 Documents
+6029411 drwxr-xr-x 2 labuser labuser 4096 Dec 18  2023 Downloads
+6036475 -rw-rw-r-- 1 labuser labuser   53 Dec 18  2023 execute.yml
+6160419 drwxrwxr-x 3 labuser labuser 4096 Dec 14 05:24 labtest
+6029415 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Music
+6029416 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Pictures
+6029413 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Public
+6030259 drwxrwxr-x 2 labuser labuser 4096 Dec 18  2023 repos
+6029322 drwx------ 6 labuser labuser 4096 Dec 15  2023 snap
+6029412 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Templates
+6161981 drwxrwxr-x 4 labuser labuser 4096 Dec 14 04:12 test1
+6160496 drwxrwxr-x 3 labuser labuser 4096 Dec 14 05:19 test11
+6029418 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Videos
+labuser@labuser-virtual-machine:~$ cd labtest
+labuser@labuser-virtual-machine:~/labtest$ ls
+test11
+labuser@labuser-virtual-machine:~/labtest$ mkdir dev1
+labuser@labuser-virtual-machine:~/labtest$ cd dev1
+labuser@labuser-virtual-machine:~/labtest/dev1$ git pull https://github.com/Ananyaaaa22/labtest
+From https://github.com/Ananyaaaa22/labtest
+ * branch            HEAD       -> FETCH_HEAD
+Already up to date.
+labuser@labuser-virtual-machine:~/labtest/dev1$ git branch
+* master
+labuser@labuser-virtual-machine:~/labtest/dev1$ ls -li
+total 0
+labuser@labuser-virtual-machine:~/labtest/dev1$ git branch m1
+labuser@labuser-virtual-machine:~/labtest/dev1$ git checkout m1
+Switched to branch 'm1'
+labuser@labuser-virtual-machine:~/labtest/dev1$ echo "mango" > fruit
+labuser@labuser-virtual-machine:~/labtest/dev1$ ls
+fruit
+labuser@labuser-virtual-machine:~/labtest/dev1$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+labuser@labuser-virtual-machine:~/labtest/dev1$ ls
+fruit
+labuser@labuser-virtual-machine:~/labtest/dev1$ git rebase master
+Current branch master is up to date.
+labuser@labuser-virtual-machine:~/labtest/dev1$ 
+
+
